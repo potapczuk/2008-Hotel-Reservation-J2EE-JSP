@@ -1,0 +1,14 @@
+		ClienteDAO cDAO = new ClienteDAO();
+		Cliente c = new Cliente();
+		
+		c.setNomeCliente("Leandro Souza");
+		c.setNascimentoCliente("1923-09-04");
+		c.setEnderecoCliente("Rua: lala");
+		c.setCidadeCliente("Lauro de Freitas");
+		c.setEstadoCliente("Bahia");
+		c.setCEPCliente("42700-000");
+		c.setBairroCliente("Joquey");
+		c.setRgCliente("35033342-4");
+		c.setTelefoneResidencial("(71) 3213-4214");
+		
+		cDAO.salva(c);

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.5">
+	<jsp-config>
+		<jsp-property-group>
+			<display-name>todos os jsps</display-name>
+			<description>configuracoes de todos os jsps</description>
+			<url-pattern>*.jsp</url-pattern>
+			<scripting-invalid>false</scripting-invalid>
+			<el-ignored>false</el-ignored>
+			<page-encoding>ISO-8859-1</page-encoding>
+			<!--  <include-prelude>/header.jsp</include-prelude>
+			<include-coda>/footer.jsp</include-coda>  -->
+		</jsp-property-group>
+	</jsp-config>
+	
+	<description>	
+      Trabalho Interdisciplinar 4o Semestre
+    </description>
+    <display-name>Interdisciplinar 4o Semestre</display-name>
+	
+	<welcome-file-list>
+		<welcome-file>hospedagem.jsp</welcome-file>
+	</welcome-file-list>
+	
+<!-- 	
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/erro.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/erroPaginaNaoEncontrada.jsp</location>
+	</error-page>
+-->
+	
+	<servlet>
+	    <servlet-name>action</servlet-name>
+	    <servlet-class>
+	        org.apache.struts.action.ActionServlet
+	    </servlet-class>
+	    <init-param>
+	        <param-name>config</param-name>
+	        <param-value>
+	         /WEB-INF/classes/struts-config.xml
+	        </param-value>
+	    </init-param>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<session-config>
+	   <session-timeout>15</session-timeout>   
+	</session-config>
+</web-app>

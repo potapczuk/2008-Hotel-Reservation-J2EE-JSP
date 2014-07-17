@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="ChaleForm"
+			type="com.diegoliveira.interdisciplinar4.form.ChaleForm" />
+		<form-bean name="ClienteForm"
+			type="com.diegoliveira.interdisciplinar4.form.ClienteForm" />
+		<form-bean name="HospedagemForm"
+			type="com.diegoliveira.interdisciplinar4.form.HospedagemForm" />
+		<form-bean name="HospedagemEncerraForm"
+			type="com.diegoliveira.interdisciplinar4.form.HospedagemEncerraForm" />
+		<form-bean name="ItemForm"
+			type="com.diegoliveira.interdisciplinar4.form.ItemForm" />
+		<form-bean name="ServicoForm"
+			type="com.diegoliveira.interdisciplinar4.form.ServicoForm" />
+        <form-bean name="HospedagemServicoForm"
+            type="org.apache.struts.action.DynaActionForm">
+            <form-property name="codHospedagemServico" type="java.lang.String"
+                initial="" />
+            <form-property name="codHospedagem" type="java.lang.String"
+                initial="" />
+            <form-property name="acaoForm" type="java.lang.String"
+                initial="" />
+        </form-bean>
+        <form-bean name="HospedagemServicoAplicaForm"
+            type="org.apache.struts.action.DynaActionForm">
+            <form-property name="codServico" type="java.lang.String"
+                initial="" />
+            <form-property name="codHospedagem" type="java.lang.String"
+                initial="" />
+            <form-property name="acaoForm" type="java.lang.String"
+                initial="" />
+        </form-bean>
+		<form-bean name="ListaForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="acao" type="java.lang.String"
+				initial="" />
+		</form-bean>
+	</form-beans>
+
+	<action-mappings>
+		<action path="/Chale" name="ListaForm"
+			type="com.diegoliveira.interdisciplinar4.action.ChaleAction"
+			scope="request" validate="false" input="/chale.jsp">
+
+
+			<forward name="lista" path="/chale.jsp" />
+			<forward name="listaVazia" path="/chale.jsp" />
+			<forward name="novo" path="/ChaleGer.do" />
+			<forward name="falha" path="/erro.jsp" />
+		</action>
+
+		<action path="/ChaleGer"
+			type="com.diegoliveira.interdisciplinar4.action.ChaleGerAction"
+			name="ChaleForm" scope="request" input="/chaleForm.jsp"
+			validate="false">
+
+			<forward name="novo" path="/chaleForm.jsp" />
+			<forward name="cancela" path="/Chale.do" />
+			<forward name="sucesso" path="/Chale.do" />
+			<forward name="falha" path="/chaleForm.jsp" />
+		</action>
+
+		<action path="/Cliente" name="ListaForm"
+			type="com.diegoliveira.interdisciplinar4.action.ClienteAction"
+			scope="request" validate="false" input="/cliente.jsp">
+
+
+			<forward name="lista" path="/cliente.jsp" />
+			<forward name="listaVazia" path="/cliente.jsp" />
+			<forward name="novo" path="/ClienteGer.do" />
+			<forward name="falha" path="/erro.jsp" />
+		</action>
+
+		<action path="/ClienteGer"
+			type="com.diegoliveira.interdisciplinar4.action.ClienteGerAction"
+			name="ClienteForm" scope="request" input="/clienteForm.jsp"
+			validate="false">
+			<forward name="novo" path="/clienteForm.jsp" />
+			<forward name="cancela" path="/Cliente.do" />
+			<forward name="sucesso" path="/Cliente.do" />
+			<forward name="falha" path="/clienteForm.jsp" />
+		</action>
+
+		<action path="/Hospedagem" name="ListaForm"
+			type="com.diegoliveira.interdisciplinar4.action.HospedagemAction"
+			scope="request" validate="false" input="/hospedagem.jsp">
+			<forward name="lista" path="/hospedagem.jsp" />
+			<forward name="listaVazia" path="/hospedagem.jsp" />
+			<forward name="novo" path="/HospedagemGer.do" />
+			<forward name="falha" path="/erro.jsp" />
+		</action>
+
+		<action path="/HospedagemGer"
+			type="com.diegoliveira.interdisciplinar4.action.HospedagemGerAction"
+			name="HospedagemForm" scope="request" input="/hospedagemForm.jsp"
+			validate="false">
+
+			<forward name="novo" path="/hospedagemForm.jsp" />
+			<forward name="encerra" path="/HospedagemEncerra.do" />
+			<forward name="servicos" path="/HospedagemServico.do" />
+			<forward name="cancela" path="/Hospedagem.do" />
+			<forward name="sucesso" path="/Hospedagem.do" />
+			<forward name="falha" path="/hospedagemForm.jsp" />
+		</action>
+		
+		<action path="/HospedagemEncerra"
+            type="com.diegoliveira.interdisciplinar4.action.HospedagemEncerraAction"
+            name="HospedagemEncerraForm" scope="request" input="/hospedagemEncerra.jsp"
+            validate="false">
+            
+            <forward name="encerra" path="/hospedagemEncerra.jsp" />
+            <forward name="cancela" path="/Hospedagem.do" />
+            <forward name="sucesso" path="/hospedagemRelatorio.jsp" />
+            <forward name="falha" path="/hospedagemEncerra.jsp" />
+        </action>
+        
+        <action path="/HospedagemServico" name="HospedagemServicoForm"
+            type="com.diegoliveira.interdisciplinar4.action.HospedagemServicoAction"
+            scope="request" validate="false" input="/hospedagemServico.jsp">
+            <forward name="lista" path="/hospedagemServico.jsp" />
+            <forward name="listaVazia" path="/hospedagemServico.jsp" />
+            <forward name="aplicaServico" path="/HospedagemServicoAplica.do" />
+            <forward name="cancela" path="/Hospedagem.do" />
+            <forward name="falha" path="/erro.jsp" />
+        </action>
+        
+        <action path="/HospedagemServicoAplica"
+            type="com.diegoliveira.interdisciplinar4.action.HospedagemServicoAplicaAction"
+            name="HospedagemServicoAplicaForm" scope="request" input="/hospedagemServicoAplica.jsp"
+            validate="false">
+            
+            <forward name="aplicaServico" path="/hospedagemServicoAplica.jsp" />
+            <forward name="cancela" path="/HospedagemServico.do" />
+            <forward name="sucesso" path="/HospedagemServico.do" />
+            <forward name="falha" path="/hospedagemServicoAplica.jsp" />
+        </action>
+
+		<action path="/Item" name="ListaForm"
+			type="com.diegoliveira.interdisciplinar4.action.ItemAction"
+			scope="request" validate="false" input="/item.jsp">
+			<forward name="lista" path="/item.jsp" />
+			<forward name="listaVazia" path="/item.jsp" />
+			<forward name="novo" path="/ItemGer.do" />
+			<forward name="falha" path="/erro.jsp" />
+		</action>
+
+		<action path="/ItemGer"
+			type="com.diegoliveira.interdisciplinar4.action.ItemGerAction"
+			name="ItemForm" scope="request" input="/itemForm.jsp"
+			validate="false">
+
+			<forward name="novo" path="/itemForm.jsp" />
+			<forward name="cancela" path="/Item.do" />
+			<forward name="sucesso" path="/Item.do" />
+			<forward name="falha" path="/itemForm.jsp" />
+		</action>
+
+		<action path="/Servico" name="ListaForm"
+			type="com.diegoliveira.interdisciplinar4.action.ServicoAction"
+			scope="request" validate="false" input="/servico.jsp">
+			<forward name="lista" path="/servico.jsp" />
+			<forward name="listaVazia" path="/servico.jsp" />
+			<forward name="novo" path="/ServicoGer.do" />
+			<forward name="falha" path="/erro.jsp" />
+		</action>
+
+		<action path="/ServicoGer"
+			type="com.diegoliveira.interdisciplinar4.action.ServicoGerAction"
+			name="ServicoForm" scope="request" input="/servicoForm.jsp"
+			validate="false">
+
+			<forward name="novo" path="/servicoForm.jsp" />
+			<forward name="cancela" path="/Servico.do" />
+			<forward name="sucesso" path="/Servico.do" />
+			<forward name="falha" path="/servicoForm.jsp" />
+		</action>
+		
+	</action-mappings>
+
+	<message-resources parameter="MessageResources" />
+
+</struts-config>

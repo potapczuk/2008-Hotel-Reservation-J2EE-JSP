@@ -1,0 +1,212 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size:13px;
+	background-image:url(imagens/fundo.gif);
+	background-position:center;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000;
+	background-repeat: repeat-y;
+}
+#container {
+	width: 780px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	text-align:justify;
+}
+#header {
+	background-image:url(imagens/topo.gif);
+	height:114px;
+}
+#mainContent {
+	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	min-height:300px;
+}
+#mainContent h1{
+	font-size:18px;
+	font-weight:bold;
+}
+#footer {
+	background-image:url(imagens/rodape.gif);
+	height:71px;
+} 
+  
+.glossymenu{
+	position: relative;
+	padding: 66px 0 0 60px;
+	margin: 0 auto 0 auto;
+	height: 35px;
+	list-style: none;
+}
+
+.glossymenu li{
+	float:left;
+	display:inline;
+	margin-right:50px;
+}
+
+.glossymenu li a{
+	float: left;
+	display: block;
+	color:#000;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	padding:0 0 0 8px; /*Padding to accomodate left tab image. Do not change*/
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	cursor: pointer;	
+}
+
+.glossymenu li a b{
+	float: left;
+	display: block;
+	padding: 0 15px 0 8px; /*Padding of menu items*/
+}
+
+.glossymenu li a{
+	background:url(imagens/bt_left_n.gif) no-repeat; /*left tab image path*/
+	background-position: left;
+}
+
+.glossymenu li a b{
+	color: #fff;
+	background: url(imagens/bt_right_n.gif) no-repeat right top; /*right tab image path*/
+}
+
+.glossymenu li a:hover{
+	background:url(imagens/bt_left.gif) no-repeat; /*left tab image path*/
+	background-position: left;
+}
+
+.glossymenu li a:hover b{
+	color:#C4DBFF;
+	background: url(imagens/bt_right.gif) no-repeat right top; /*right tab image path*/
+}
+
+a.ovalbutton{
+background: transparent url('imagens/oval-blue-left.gif') no-repeat top left;
+display: block;
+float: left;
+font: normal 13px Tahoma; /* Change 13px as desired */
+line-height: 16px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 24px) */
+height: 24px; /* Height of button background height */
+padding-left: 11px; /* Width of left menu image */
+text-decoration: none;
+}
+
+a:link.ovalbutton, a:visited.ovalbutton, a:active.ovalbutton{
+color: #494949; /*button text color*/
+}
+
+a.ovalbutton span{
+background: transparent url('imagens/oval-blue-right.gif') no-repeat top right;
+display: block;
+padding: 4px 11px 4px 0; /*Set 11px below to match value of 'padding-left' value above*/
+}
+
+a.ovalbutton:hover{ /* Hover state CSS */
+background-position: bottom left;
+}
+
+a.ovalbutton:hover span{ /* Hover state CSS */
+background-position: bottom right;
+color: black;
+}
+
+.buttonwrapper{ /* Container you can use to surround a CSS button to clear float */
+overflow: hidden; /*See: http://www.quirksmode.org/css/clearing.html */
+width: 100%;
+}
+
+.tabelaDeDados{
+	background-color:#09143a;
+}
+
+.tabelaDeDados th{
+	background-color:#293359;
+	color:#FFFFFF;
+	text-align:center;
+}
+
+.tabelaDeDados tr{
+	background-color: #d9deea;
+}
+
+.tabelaDeDados tr.impar{
+	background-color:#cfd5f1;
+}
+.formulario {
+	background-color: #d9deea;
+    border: 1px solid #9999ff;
+    margin: 0 auto 0 auto;
+}
+
+.formulario td{
+    border-bottom: 1px solid #9999ff;
+}
+
+.formulario .titulo {
+	  width: 50%;
+    text-align: right;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.formulario .form {
+    
+}
+
+.formulario .botoes {
+	margin-top: 10px;
+    margin-left: 192px;
+    border-bottom: none;
+}
+
+.relatorio {
+    margin: 0 auto 0 auto;
+}
+
+.relatorio td{
+    border-bottom: 1px solid #9999ff;
+}
+
+.relatorio .titulo {
+    width: 25%;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+a:link {
+	color: #6C0000;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #6C0000;
+}
+a:hover {
+	text-decoration: none;
+	color: #220002;
+}
+a:active {
+	text-decoration: none;
+	color: #6C0000;
+}
+
+.erro {
+  color: #aa2222;
+  font-size: 13px;
+  font-weight: bold;
+  width: 98%;
+  background-color: #ffdddd;
+  border: 1px solid #aa2222;
+  padding: 4px;
+  margin-bottom: 8px;
+}
